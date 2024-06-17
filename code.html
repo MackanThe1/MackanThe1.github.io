@@ -8,11 +8,41 @@
 </head>
 
 <body>
-    <h1>Hello World</h1>
-    <p>I'm hosted with GitHub Pages.</p>
+    <h1> Buttons </h1>
 
-    <button> Press me! </button>
+    <button style=
+        "background-color: blue; 
+        color: white;" onclick="colorFn(this)">
+        Click me
+    </button>
 
-    <!-- <a href="/server.html"></a> -->
+    <button style=
+        "background-color: red; 
+        color: white;" onclick="colorFn(this)">
+        Click me
+    </button>
+
+    <button style=
+        "background-color: green; 
+        color: white;" onclick="colorFn(this)">
+        Click me
+    </button>
+
+
+    <script>
+        function colorFn(element) {
+            const color = randomFn();
+            element.style.backgroundColor = color;
+        }
+        function randomFn() {
+            const l = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += l[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+
 </body>
 </html>
