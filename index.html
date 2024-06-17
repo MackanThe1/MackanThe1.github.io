@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Interface</title>
+    <script>
+        async function sendData() {
+            const response = await fetch('/api/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: 'Hello from the client!' })
+            });
+            const result = await response.json();
+            document.getElementById('response').innerText = JSON.stringify(result);
+        }
+    </script>
+</head>
+<body>
+    <h1>Client Interface</h1>
+    <button onclick="sendData()">Send Data to Server</button>
+    <p id="response"></p>
+</body>
+</html>
