@@ -1,18 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>coolzite.you</title>
-    <link rel="stylesheet" href="styles.css">
+  <title>Multiplayer Chat</title>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyC6f_31A1Jpnyh_hUGEqBwRXP780riByFA",
+        authDomain: "coolzite-666.firebaseapp.com",
+        projectId: "coolzite-666",
+        storageBucket: "coolzite-666.appspot.com",
+        messagingSenderId: "297087655534",
+        appId: "1:297087655534:web:fce2f80a28df04247b907f",
+        measurementId: "G-VEB18B6TQM"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+    const messagesRef = database.ref('messages');
+
+    function sendMessage(username, message) {
+      const newMessageRef = messagesRef.push();
+      newMessageRef.set({
+        username: username,
+        message: message,
+        timestamp: Date.now()
+      });
+    }
+
+    messagesRef.on('child_added', (snapshot) => {
+      const message = snapshot.val();
+      displayMessage(message.username, message.message);
+    });
+
+    function displayMessage(username, message) {
+      const messageElement = document.createElement('div');
+      messageElement.textContent = `${username}: ${message}`;
+      document.getElementById('chat').appendChild(messageElement);
+    }
+
+    function handleSend() {
+      const username = document.getElementById('username').value;
+      const message = document.getElementById('message').value;
+      sendMessage(username, message);
+    }
+  </script>
 </head>
 
 <body>
-    <h1>Hello World</h1>
-    <p>I'm hosted with GitHub Pages.</p>
-
-    <button> Press me! </button>
-
-    <a href="/server.html"></a>
+  <div>
+    <input type="text" id="username" placeholder="Your name">
+    <input type="text" id="message" placeholder="Your message">
+    <button onclick="handleSend()">Send</button>
+  </div>
+  <div id="chat"></div>
 </body>
 </html>
