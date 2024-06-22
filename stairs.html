@@ -8,9 +8,9 @@
 </head>
 
 <body onload="startGame()">
-    <h1> Stairs </h1>
 
     <script>
+        const endValue = 10;
         var myScore, cpu1Score, cpu2Score, cpu3Score;
 
         var myGameArea = {
@@ -39,6 +39,15 @@
                 this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             },
             stop: function() {
+                if (myScore >= endValue){
+                    ctx.fillStyle = "blue";
+                    ctx.font = "60px Lucida Console";
+                    ctx.fillText("YOU WON!!", 230, 150);
+                }else{
+                    ctx.fillStyle = "red";
+                    ctx.font = "60px Lucida Console";
+                    ctx.fillText("YOU LOST", 230, 300);
+                }
             }
         }
 
@@ -47,6 +56,8 @@
             cpu1Score = 0;
             cpu2Score = 0;
             cpu3Score = 0;
+
+            myGameArea.clear();
             myGameArea.start();
         }
 
@@ -69,30 +80,38 @@
                 cpu3Score += cpu3num;
             }
 
-            myGameArea.clear();
-            ctx = myGameArea.context;
+            if ( myScore >= endValue || cpu1Score >= endValue || cpu2Score >= endValue || cpu3Score >= endValue ){
+                myGameArea.stop();
+            }else{
+                myGameArea.clear();
+                ctx = myGameArea.context;
 
-            ctx.fillStyle = "blue";
-            ctx.fillRect( 85, Math.max(0, (270-(myScore*30)) ), 30, 30);
+                ctx.fillStyle = "blue";
+                ctx.fillRect( 85, Math.max(0, (270-(myScore*30)) ), 30, 30);
 
-            ctx.fillStyle = "red";
-            ctx.fillRect(185, Math.max(0, (270-(cpu1Score*30)) ), 30, 30);
+                ctx.fillStyle = "red";
+                ctx.fillRect(185, Math.max(0, (270-(cpu1Score*30)) ), 30, 30);
 
-            ctx.fillStyle = "green";
-            ctx.fillRect(285, Math.max(0, (270-(cpu2Score*30)) ), 30, 30);
+                ctx.fillStyle = "green";
+                ctx.fillRect(285, Math.max(0, (270-(cpu2Score*30)) ), 30, 30);
 
-            ctx.fillStyle = "yellow";
-            ctx.fillRect(385, Math.max(0, (270-(cpu3Score*30)) ), 30, 30);
+                ctx.fillStyle = "yellow";
+                ctx.fillRect(385, Math.max(0, (270-(cpu3Score*30)) ), 30, 30);
 
-            //  Write text
-            ctx.fillStyle = "black";
-            ctx.font = "30px Lucida Console";
-            ctx.fillText(""+n, 90, 300);
-            ctx.fillText(""+cpu1num, 190, 300);
-            ctx.fillText(""+cpu2Score, 290, 300);
-            ctx.fillText(""+cpu3Score, 390, 300);
+                //  Write numbers
+                ctx.fillStyle = "black";
+                ctx.font = "30px Lucida Console";
+                ctx.fillText(""+n, 90, 300);
+                ctx.fillText(""+cpu1num, 190, 300);
+                ctx.fillText(""+cpu2num, 290, 300);
+                ctx.fillText(""+cpu3num, 390, 300);
+            }
         }
     </script>
+
+    <h1> Stairs </h1>
+
+    <button onclick="startGame()"> Restart </button> <br>
 
     <button onclick="choose(1)"> 1 </button>
     <button onclick="choose(2)"> 2 </button>
