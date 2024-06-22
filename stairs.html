@@ -52,8 +52,8 @@
 
         function choose(n) {
             myScore += n;
+            myGameArea.clear();
             ctx = myGameArea.context;
-            myScore.clear();
 
             ctx.fillStyle = "blue";
             ctx.fillRect( 85, Math.max(0, (270-(myScore*30)) ), 30, 30);
