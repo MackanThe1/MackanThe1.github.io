@@ -15,6 +15,7 @@ img {
 }
 
 #stairsCanvas {
+    position: relative;
     border:1px solid black;
     background-image: 
         linear-gradient(
