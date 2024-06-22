@@ -32,15 +32,36 @@
                 this.canvas.height = 300;
                 this.context = this.canvas.getContext("2d");
                 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                ctx = myGameArea.context;
+
+                ctx.fillStyle = "blue";
+                ctx.fillRect(270, 85, 30, 30);
+
+                ctx.fillStyle = "red";
+                ctx.fillRect(270, 185, 30, 30);
+
+                ctx.fillStyle = "green";
+                ctx.fillRect(270, 285, 30, 30);
+
+                ctx.fillStyle = "yellow";
+                ctx.fillRect(270, 385, 30, 30);
             },
             clear : function() {
+                // this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             },
             stop: function() {
+                if (this.interval) {
+                    clearInterval(this.interval);   // clear any existing interval
+                }
             }
         }
 
         function choose(n) {
             myScore += n;
+
+            ctx = myGameArea.context;
+            ctx.fillStyle = "blue";
+            ctx.fillRect( max(0, 270-(myScore*30) ), 140, 30, 30);
         }
     </script>
 

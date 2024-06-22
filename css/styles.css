@@ -16,17 +16,15 @@ img {
 
 #stairsCanvas {
     border:1px solid black;
-    /* background-color: lightcoral; */
-
     background-image: 
         linear-gradient(
             to bottom,
-            green,
-            green 50%,
-            lightgreen 50%,
-            lightgreen
+            darkslategray,
+            darkslategray 50%,
+            white 50%,
+            white
         );
     /* The rectangle in which to repeat. 
     It can be fully wide in this case */
-    background-size: 100% 20px;
+    background-size: 100% 60px;
 }
