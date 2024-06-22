@@ -10,7 +10,7 @@
 <body onload="startGame()">
 
     <script>
-        const endValue = 10;
+        const endValue = 9;
         var myScore, cpu1Score, cpu2Score, cpu3Score;
 
         var myGameArea = {
@@ -42,11 +42,11 @@
                 if (myScore >= endValue){
                     ctx.fillStyle = "blue";
                     ctx.font = "60px Lucida Console";
-                    ctx.fillText("YOU WON!!", 230, 150);
+                    ctx.fillText("YOU WON!!", 170, 150);
                 }else{
                     ctx.fillStyle = "red";
                     ctx.font = "60px Lucida Console";
-                    ctx.fillText("YOU LOST", 230, 300);
+                    ctx.fillText("YOU LOST", 170, 300);
                 }
             }
         }
