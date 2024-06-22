@@ -8,3 +8,8 @@ img {
     width: 90%;
     border: 5px solid black;
 }
+
+canvas {
+    border:1px solid black;
+    background-color: lightcoral;
+}

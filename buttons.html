@@ -7,42 +7,42 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <h1> Buttons </h1>
+<body onload="startGame()">
+    <h1> Stairs </h1>
 
-    <button style=
-        "background-color: blue; 
-        color: white;" onclick="colorFn(this)">
-        Click me
-    </button>
-
-    <button style=
-        "background-color: red; 
-        color: white;" onclick="colorFn(this)">
-        Click me
-    </button>
-
-    <button style=
-        "background-color: green; 
-        color: white;" onclick="colorFn(this)">
-        Click me
-    </button>
+    <button onclick="choose(1)"> 1 </button>
+    <button onclick="choose(2)"> 2 </button>
+    <button onclick="choose(3)"> 3 </button>
 
 
     <script>
-        function colorFn(element) {
-            const color = randomFn();
-            element.style.backgroundColor = color;
+        var myScore;
+
+        function startGame() {
+            myScore = 0;
+            myGameArea.stop();
+            myGameArea.start();
         }
-        function randomFn() {
-            const l = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += l[Math.floor(Math.random() * 16)];
+
+        var myGameArea = {
+            canvas : document.createElement("canvas"),
+            start : function() {
+                this.canvas.width = 480;
+                this.canvas.height = 270;
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+            },
+            clear : function() {
+            },
+            stop: function() {
             }
-            return color;
+        }
+
+        function choose(n) {
+            myScore += n;
         }
     </script>
+
 
     <br><br><br>
     <a href="/index.html"> Back </a>
