@@ -57,7 +57,9 @@
             cpu2Score = 0;
             cpu3Score = 0;
 
-            myGameArea.clear();
+            if( myGameArea.context ){
+                myGameArea.clear();
+            }
             myGameArea.start();
         }
 
