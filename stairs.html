@@ -10,19 +10,8 @@
 <body onload="startGame()">
     <h1> Stairs </h1>
 
-    <button onclick="choose(1)"> 1 </button>
-    <button onclick="choose(2)"> 2 </button>
-    <button onclick="choose(3)"> 3 </button>
-
-
     <script>
         var myScore;
-
-        function startGame() {
-            myScore = 0;
-            myGameArea.stop();
-            myGameArea.start();
-        }
 
         var myGameArea = {
             canvas : document.createElement("canvas"),
@@ -38,7 +27,7 @@
                 ctx.fillRect(85, 270, 30, 30);
 
                 ctx.fillStyle = "red";
-                ctx.fillRect(270, 185, 270, 30, 30);
+                ctx.fillRect(185, 270, 30, 30);
 
                 ctx.fillStyle = "green";
                 ctx.fillRect(285, 270, 30, 30);
@@ -50,21 +39,25 @@
                 // this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             },
             stop: function() {
-                if (this.interval) {
-                    clearInterval(this.interval);   // clear any existing interval
-                }
             }
+        }
+
+        function startGame() {
+            myScore = 0;
+            myGameArea.start();
         }
 
         function choose(n) {
             myScore += n;
-
             ctx = myGameArea.context;
             ctx.fillStyle = "blue";
-            ctx.fillRect( 140, (int) (270-(myScore*30)) , 30, 30);
+            ctx.fillRect( 140, (270-(myScore*30)) , 30, 30);
         }
     </script>
 
+    <button onclick="choose(1)"> 1 </button>
+    <button onclick="choose(2)"> 2 </button>
+    <button onclick="choose(3)"> 3 </button>
 
     <br><br><br>
     <a href="/index.html"> Back </a>
