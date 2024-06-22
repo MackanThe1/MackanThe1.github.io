@@ -11,7 +11,7 @@
     <h1> Stairs </h1>
 
     <script>
-        var myScore;
+        var myScore, cpu1Score, cpu2Score, cpu3Score;
 
         var myGameArea = {
             canvas : document.createElement("canvas"),
@@ -44,18 +44,27 @@
 
         function startGame() {
             myScore = 0;
+            cpu1Score = 0;
+            cpu2Score = 0;
+            cpu3Score = 0;
             myGameArea.start();
         }
 
         function choose(n) {
             myScore += n;
-            //myGameArea.clear();
+            myGameArea.clear();
             ctx = myGameArea.context;
-
             ctx.fillStyle = "blue";
             ctx.fillRect( 85, max(0, (270-(myScore*30)) ), 30, 30);
-            ctx.fillStyle = "black";
-            ctx.fillText("" + toString(n), 85, 270);
+
+            ctx.fillStyle = "red";
+            ctx.fillRect(185, max(0, (270-(cpu1Score*30)) ), 30, 30);
+
+            ctx.fillStyle = "green";
+            ctx.fillRect(285, max(0, (270-(cpu2Score*30)) ), 30, 30);
+
+            ctx.fillStyle = "yellow";
+            ctx.fillRect(385, max(0, (270-(cpu3Score*30)) ), 30, 30);
         }
     </script>
 
