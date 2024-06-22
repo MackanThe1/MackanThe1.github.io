@@ -30,7 +30,7 @@
 
                 // Append the canvas to the container (below the paragraph)
                 const container = document.getElementById('canvas-container');
-                container.appendChild(canvas);
+                container.appendChild(this.canvas);
 
                 this.context = this.canvas.getContext("2d");
                 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
