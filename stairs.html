@@ -52,21 +52,20 @@
 
         function choose(n) {
             myScore += n;
-            //myGameArea.clear();
             ctx = myGameArea.context;
-            ctx.clear()
+            myScore.clear();
 
             ctx.fillStyle = "blue";
-            ctx.fillRect( 85, max(0, (270-(myScore*30)) ), 30, 30);
+            ctx.fillRect( 85, Math.max(0, (270-(myScore*30)) ), 30, 30);
 
             ctx.fillStyle = "red";
-            ctx.fillRect(185, max(0, (270-(cpu1Score*30)) ), 30, 30);
+            ctx.fillRect(185, Math.max(0, (270-(cpu1Score*30)) ), 30, 30);
 
             ctx.fillStyle = "green";
-            ctx.fillRect(285, max(0, (270-(cpu2Score*30)) ), 30, 30);
+            ctx.fillRect(285, Math.max(0, (270-(cpu2Score*30)) ), 30, 30);
 
             ctx.fillStyle = "yellow";
-            ctx.fillRect(385, max(0, (270-(cpu3Score*30)) ), 30, 30);
+            ctx.fillRect(385, Math.max(0, (270-(cpu3Score*30)) ), 30, 30);
         }
     </script>
 
