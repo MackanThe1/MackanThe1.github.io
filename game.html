@@ -16,7 +16,7 @@
 
 <body> <!-- onload="startGame()"> -->
 
-    <br> <button onmousedown="startGame()"> START </button>
+    <br> <button onmousedown="startGame()"> START </button> <br>
 
 
 <script>
@@ -75,6 +75,13 @@ function component(width, height, color, x, y, type) {
         this.y += this.speedY + this.gravitySpeed;
         this.hitBottom();
     }
+    this.hitTop = function() {
+        var rocktop = 0;
+        if (this.y < rocktop) {
+            this.y = rocktop;
+            this.gravitySpeed = 0;
+        }
+    }
     this.hitBottom = function() {
         var rockbottom = myGameArea.canvas.height - this.height;
         if (this.y > rockbottom) {
@@ -109,6 +116,9 @@ function updateGameArea() {
     myGameArea.clear();
     myGameArea.frameNo += 1;
     if (myGameArea.frameNo == 1 || everyinterval(150)) {
+        if (myGameArea.frameNo == 1) {
+            myObstacles = [];   // removes old when starting new game
+        }
         x = myGameArea.canvas.width;
         minHeight = 20;
         maxHeight = 200;
@@ -140,11 +150,11 @@ function accelerate(n) {
 </script>
 
 <br>
-<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
+<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)"> FLY </button>
 
 
 <br><br><br>
-<a href="/index.html"> Back </a>
+<a href="/index.html"> BACK </a>
 
 </body>
 </html>
