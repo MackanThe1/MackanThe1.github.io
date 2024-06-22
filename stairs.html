@@ -10,7 +10,9 @@
 <body onload="startGame()">
 
     <script>
-        const endValue = 9;
+        const endValue = 14;
+        const height = 450;
+
         var myScore, cpu1Score, cpu2Score, cpu3Score;
 
         var myGameArea = {
@@ -18,22 +20,22 @@
             start : function() {
                 this.canvas.id = "stairsCanvas";
                 this.canvas.width = 500;
-                this.canvas.height = 300;
+                this.canvas.height = height;
                 this.context = this.canvas.getContext("2d");
                 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 ctx = myGameArea.context;
 
                 ctx.fillStyle = "blue";
-                ctx.fillRect(85, 270, 30, 30);
+                ctx.fillRect(85, height-30, 30, 30);
 
                 ctx.fillStyle = "red";
-                ctx.fillRect(185, 270, 30, 30);
+                ctx.fillRect(185, height-30, 30, 30);
 
                 ctx.fillStyle = "green";
-                ctx.fillRect(285, 270, 30, 30);
+                ctx.fillRect(285, height-30, 30, 30);
 
                 ctx.fillStyle = "yellow";
-                ctx.fillRect(385, 270, 30, 30);
+                ctx.fillRect(385, height-30, 30, 30);
             },
             clear : function() {
                 this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -42,11 +44,11 @@
                 if (myScore >= endValue){
                     ctx.fillStyle = "blue";
                     ctx.font = "60px Lucida Console";
-                    ctx.fillText("YOU WON!!", 170, 150);
+                    ctx.fillText("YOU WON!!", 170, height/2);
                 }else{
                     ctx.fillStyle = "red";
                     ctx.font = "60px Lucida Console";
-                    ctx.fillText("YOU LOST", 170, 300);
+                    ctx.fillText("YOU LOST", 170, height/2);
                 }
             }
         }
@@ -89,24 +91,24 @@
                 ctx = myGameArea.context;
 
                 ctx.fillStyle = "blue";
-                ctx.fillRect( 85, Math.max(0, (270-(myScore*30)) ), 30, 30);
+                ctx.fillRect( 85, Math.max(0, ((height-30)-(myScore*30)) ), 30, 30);
 
                 ctx.fillStyle = "red";
-                ctx.fillRect(185, Math.max(0, (270-(cpu1Score*30)) ), 30, 30);
+                ctx.fillRect(185, Math.max(0, ((height-30)-(cpu1Score*30)) ), 30, 30);
 
                 ctx.fillStyle = "green";
-                ctx.fillRect(285, Math.max(0, (270-(cpu2Score*30)) ), 30, 30);
+                ctx.fillRect(285, Math.max(0, ((height-30)-(cpu2Score*30)) ), 30, 30);
 
                 ctx.fillStyle = "yellow";
-                ctx.fillRect(385, Math.max(0, (270-(cpu3Score*30)) ), 30, 30);
+                ctx.fillRect(385, Math.max(0, ((height-30)-(cpu3Score*30)) ), 30, 30);
 
                 //  Write numbers
                 ctx.fillStyle = "black";
                 ctx.font = "30px Lucida Console";
-                ctx.fillText(""+n, 90, 300);
-                ctx.fillText(""+cpu1num, 190, 300);
-                ctx.fillText(""+cpu2num, 290, 300);
-                ctx.fillText(""+cpu3num, 390, 300);
+                ctx.fillText(""+n, 90, height);
+                ctx.fillText(""+cpu1num, 190, height);
+                ctx.fillText(""+cpu2num, 290, height);
+                ctx.fillText(""+cpu3num, 390, height);
             }
         }
     </script>
