@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>coolzite.you</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body onload="startGame()">
@@ -25,8 +25,9 @@
         }
 
         var myGameArea = {
-            canvas : document.createElement("stairsCanvas"),
+            canvas : document.createElement("canvas"),
             start : function() {
+                this.canvas.id = "stairsCanvas";
                 this.canvas.width = 500;
                 this.canvas.height = 300;
                 this.context = this.canvas.getContext("2d");
