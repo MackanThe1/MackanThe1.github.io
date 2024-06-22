@@ -51,7 +51,24 @@
         }
 
         function choose(n) {
-            myScore += n;
+            cpu1num = Math.floor((Math.random() * 3) + 1);
+            cpu2num = Math.floor((Math.random() * 3) + 1);
+            cpu3num = Math.floor((Math.random() * 3) + 1);
+
+            //  Check if unique number
+            if ( n != cpu1num && n != cpu2num && n != cpu3num ){
+                myScore += n;
+            }
+            if ( cpu1num != n && cpu1num != cpu2num && cpu1num != cpu3num ){
+                cpu1Score += cpu1num;
+            }
+            if ( cpu2num != n && cpu2num != cpu1num && cpu2num != cpu3num ){
+                cpu2Score += cpu2num;
+            }
+            if ( cpu3num != n && cpu3num != cpu1num && cpu3num != cpu2num ){
+                cpu3Score += cpu3num;
+            }
+
             myGameArea.clear();
             ctx = myGameArea.context;
 
@@ -68,11 +85,12 @@
             ctx.fillRect(385, Math.max(0, (270-(cpu3Score*30)) ), 30, 30);
 
             //  Write text
-            ctx.fillStyle = "black"
-            ctx.fillText(""+n, 85, 270);
-            ctx.fillText("2", 185, 270);
-            ctx.fillText("1", 285, 270);
-            ctx.fillText("3", 385, 270);
+            ctx.fillStyle = "black";
+            ctx.font = "30px" + " " + "Copperplate";
+            ctx.fillText(""+n, 85, myGameArea.height);
+            ctx.fillText("1", 185, myGameArea.height);
+            ctx.fillText("2", 285, myGameArea.height);
+            ctx.fillText("3", 385, myGameArea.height);
         }
     </script>
 
