@@ -10,13 +10,11 @@ img {
 }
 
 #fbCanvas {
-    margin-top: 15px;   /* Adjust this value as needed */
     border:1px solid black;
     background-color: lightblue;
 }
 
 #stairsCanvas {
-    margin-top: 10%;    /* Adjust this value as needed */
     border:1px solid black;
     background-image: 
         linear-gradient(
