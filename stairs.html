@@ -13,7 +13,14 @@
 
     <button onclick="startGame()"> Restart </button>
 
-    <div id="canvas-container"></div>
+    <div id="canvas-container"></div> <br>
+
+    <button onclick="choose(1)"> 1 </button>
+    <button onclick="choose(2)"> 2 </button>
+    <button onclick="choose(3)"> 3 </button>
+
+    <br> <a href="/index.html"> Back </a>
+
 
     <script>
         const height = 450;
@@ -31,9 +38,9 @@
                 // Append the canvas to the container (below the paragraph)
                 const container = document.getElementById('canvas-container');
                 container.appendChild(this.canvas);
+                //document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 
                 this.context = this.canvas.getContext("2d");
-                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 ctx = myGameArea.context;
 
                 ctx.fillStyle = "blue";
@@ -123,13 +130,6 @@
             }
         }
     </script>
-
-
-    <button onclick="choose(1)"> 1 </button>
-    <button onclick="choose(2)"> 2 </button>
-    <button onclick="choose(3)"> 3 </button>
-
-    <br> <a href="/index.html"> Back </a>
 
 </body>
 </html>

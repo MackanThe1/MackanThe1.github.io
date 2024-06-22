@@ -9,7 +9,13 @@
 
 <body> <!-- onload="startGame()"> -->
 
-    <br> <button onclick="startGame()"> START </button> <br>
+    <h1> Flappy Block </h1>
+
+    <button onclick="startGame()"> START </button>
+
+    <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)" ontouchstart="accelerate(-0.2)" ontouchend="accelerate(0.05)"> FLY </button>
+
+    <br><br> <a href="/index.html"> BACK </a>
 
 
 <script>
@@ -32,7 +38,7 @@ var myGameArea = {
         this.canvas.width = 480;
         this.canvas.height = 270;
         this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        document.body.insertBefore(this.canvas, document.body.childNodes[2]);
         this.frameNo = 0;
         if (this.interval) {
             clearInterval(this.interval);   // clear any existing interval
@@ -146,13 +152,6 @@ function accelerate(n) {
     myGamePiece.gravity = n;
 }
 </script>
-
-<br>
-<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)" ontouchstart="accelerate(-0.2)" ontouchend="accelerate(0.05)"> FLY </button>
-
-
-<br><br><br>
-<a href="/index.html"> BACK </a>
 
 </body>
 </html>
