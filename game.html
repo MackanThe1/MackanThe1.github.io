@@ -40,6 +40,9 @@ var myGameArea = {
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
+        if (this.interval) {
+            clearInterval(this.interval);   // clear any existing interval
+        }
         this.interval = setInterval(updateGameArea, 20);
         },
     clear : function() {
@@ -73,6 +76,7 @@ function component(width, height, color, x, y, type) {
         this.gravitySpeed += this.gravity;
         this.x += this.speedX;
         this.y += this.speedY + this.gravitySpeed;
+        this.hitTop();
         this.hitBottom();
     }
     this.hitTop = function() {
