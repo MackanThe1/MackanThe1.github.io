@@ -29,7 +29,6 @@ function startGame() {
     myGamePiece = new component(30, 30, "yellow", 10, 120);
     myGamePiece.gravity = 0.05;
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
-    myObstacles = []; // removes old obstacles when starting new game
     myGameArea.start();
 }
 
@@ -39,6 +38,8 @@ var myGameArea = {
         this.canvas.id = "fbCanvas";
         this.canvas.width = 480;
         this.canvas.height = 270;
+
+        myObstacles = []; // removes old obstacles when starting new game
 
         // Append the canvas to the container (below the paragraph)
         const container = document.getElementById('canvas-container');
