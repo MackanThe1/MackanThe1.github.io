@@ -29,7 +29,7 @@ function startGame() {
     myGamePiece = new component(30, 30, "yellow", 10, 120);
     myGamePiece.gravity = 0.05;
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
-    myGameArea.clear();
+    myObstacles = []; // removes old obstacles when starting new game
     myGameArea.start();
 }
 
