@@ -62,11 +62,15 @@
                 if (myScore >= endValue){
                     ctx.fillStyle = "blue";
                     ctx.font = "60px Lucida Console";
-                    ctx.fillText("YOU WON!!", 170, height/2);
+                    const winText = "YOU WON!!";
+                    const textWidth = ctx.measureText(winText).width;
+                    ctx.fillText(winText, (500 - textWidth) / 2, height / 2);
                 }else{
                     ctx.fillStyle = "red";
                     ctx.font = "60px Lucida Console";
-                    ctx.fillText("YOU LOST", 170, height/2);
+                    const loseText = "YOU LOST";
+                    const textWidth = ctx.measureText(loseText).width;
+                    ctx.fillText(loseText, (500 - textWidth) / 2, height / 2);
                 }
             }
         }
